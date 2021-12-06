@@ -39,14 +39,25 @@ class AddItemViewController: UIViewController {
             msgLbl.text="Error: Item name is empty"
             return
         }
+        
         guard let itemNameValue=itemNameTF.text else { return}
         guard let expiryDateValue=expiryDateTF.text else { return }
         guard let purchaseDateValue=purchasedDateTF.text  else { return}
         let itemInfo=ItemInfo()
         itemInfo.id=UUID().uuidString
         itemInfo.itemName=itemNameValue
-        itemInfo.expiryDate=expiryDateValue
-        itemInfo.purchaseDate=purchaseDateValue
+        if(expiryDateValue==""){
+            itemInfo.expiryDate = "NA"
+        }else{
+            itemInfo.expiryDate=expiryDateValue
+        }
+        
+        if(purchaseDateValue==""){
+            itemInfo.purchaseDate = "NA"
+        }else{
+            itemInfo.purchaseDate=purchaseDateValue
+        }
+        
         //Add ItemInfo in RealmDB
         addItemToDB(itemInfo)
         //fetch all items from DB and update the array to display it in tableView
@@ -54,9 +65,9 @@ class AddItemViewController: UIViewController {
         itemNameTF.text=""
         expiryDateTF.text=""
         purchasedDateTF.text=""
+        msgLbl.text=""
         if(isItemAddedToDBFlag){
-            
-        performSegue(withIdentifier: "addItemSegueToDisplayItemViewController", sender: self)
+            performSegue(withIdentifier: "addItemSegueToDisplayItemViewController", sender: self)
         }
     }
     

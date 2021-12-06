@@ -40,21 +40,47 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         return arrItemInfo.count
     }
     
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell=displayItemsTblView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)?.first as! CustomTableViewCell
-        
-        cell.textLabel?.text=" \(arrItemInfo[indexPath.row].itemName)  "+"|"+"  \(arrItemInfo[indexPath.row].expiryDate)   "+"|"+"   \(arrItemInfo[indexPath.row].purchaseDate) "
-        
-        //To Do check why customTable cell is not working
-//        cell.itemNameLbl.text!="\(arr1[indexPath.row].itemName!)"
-//        cell.expiryDateLbl.text!="\(arr1[indexPath.row].expiryDate!)"
-//        cell.purchaseDateLbl.text!="\(arr1[indexPath.row].purchaseDate!)"
+
+        let cell=Bundle.main.loadNibNamed("CustomTableViewCell", owner: self, options: nil)?.first as! CustomTableViewCell
+
+        cell.itemNameLbl.text!="\(arrItemInfo[indexPath.row].itemName)"
+        cell.expiryDateLbl.text!="\(arrItemInfo[indexPath.row].expiryDate)"
+        cell.purchaseDateLbl.text!="\(arrItemInfo[indexPath.row].purchaseDate)"
         return cell
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Item Details"
+//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        return "Item Name             Expiry Date            PurchaseDate"
+//    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 50))
+        let label = UILabel()
+        label.frame = CGRect.init(x: 0, y: 0, width: headerView.frame.width-10, height: headerView.frame.height-10)
+        label.text = " Item Details"
+        label.font = .systemFont(ofSize: 15)
+        label.textColor = .red
+        label.backgroundColor=UIColor.yellow
+        
+        headerView.addSubview(label)
+        
+        return headerView
     }
+    
+    
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+                    removeItemFromDB(arrItemInfo[indexPath.row])
+                    arrItemInfo.remove(at: indexPath.row)
+                    tableView.deleteRows(at: [indexPath], with: .fade)
+                }
+    }
+    
+
     
     @IBAction func addItemBarBtnAction(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "addItemSegue", sender: self)
@@ -80,7 +106,28 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         self.displayItemsTblView.reloadData()
     }
     
-    
+    func removeItemFromDB(_ item : ItemInfo){
+        
+        if(!arrItemInfo.contains(item)){
+            return
+        }
+        
+        do{
+            let realm=try! Realm()
+            let object=realm.objects(ItemInfo.self)
+            if(object.count==0){
+                print("Database is Empty")
+                return 
+            }
+            try realm.write({
+                realm.delete(item)
+            })
+        }catch{
+            print("Error in deleting values from DB \(error)")
+        }
+
+        
+    }
      
 }
 

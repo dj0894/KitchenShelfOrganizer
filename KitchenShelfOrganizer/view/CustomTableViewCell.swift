@@ -2,18 +2,17 @@
 //  CustomTableViewCell.swift
 //  KitchenShelfOrganizer
 //
-//  Created by Deepika Jha on 05/12/21.
+//  Created by Deepika Jha on 06/12/21.
 //
 
 import UIKit
 
 class CustomTableViewCell: UITableViewCell {
-  
+
+    @IBOutlet weak var itemNameLbl: UILabel!
     @IBOutlet weak var expiryDateLbl: UILabel!
     @IBOutlet weak var purchaseDateLbl: UILabel!
-    @IBOutlet weak var itemNameLbl: UILabel!
     
-  
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -24,5 +23,5 @@ class CustomTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
 }
