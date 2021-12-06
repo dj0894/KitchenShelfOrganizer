@@ -1,0 +1,469 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		46053C46950C78DB48EC7832 /* Pods_KitchenShelfOrganizer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 707EF070326EB3A9A6D4AFE6 /* Pods_KitchenShelfOrganizer.framework */; };
+		CF8C2F89275E267D00CA944A /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8C2F88275E267D00CA944A /* AddItemViewController.swift */; };
+		CFCF874E275DB17000E77051 /* ItemInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCF874D275DB17000E77051 /* ItemInfo.swift */; };
+		CFE9948A275988B9001C858B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE99489275988B9001C858B /* AppDelegate.swift */; };
+		CFE9948C275988B9001C858B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE9948B275988B9001C858B /* SceneDelegate.swift */; };
+		CFE9948E275988B9001C858B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE9948D275988B9001C858B /* ViewController.swift */; };
+		CFE99491275988B9001C858B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFE9948F275988B9001C858B /* Main.storyboard */; };
+		CFE99493275988BD001C858B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFE99492275988BD001C858B /* Assets.xcassets */; };
+		CFE99496275988BD001C858B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFE99494275988BD001C858B /* LaunchScreen.storyboard */; };
+		CFF4A8DA275D7136009C4FA2 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF4A8D9275D7136009C4FA2 /* CustomTableViewCell.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		66CEEEE97DB3C59A16A3270A /* Pods-KitchenShelfOrganizer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KitchenShelfOrganizer.release.xcconfig"; path = "Target Support Files/Pods-KitchenShelfOrganizer/Pods-KitchenShelfOrganizer.release.xcconfig"; sourceTree = "<group>"; };
+		707EF070326EB3A9A6D4AFE6 /* Pods_KitchenShelfOrganizer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KitchenShelfOrganizer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF8C2F88275E267D00CA944A /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
+		CFCF874D275DB17000E77051 /* ItemInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInfo.swift; sourceTree = "<group>"; };
+		CFE99486275988B8001C858B /* KitchenShelfOrganizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KitchenShelfOrganizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFE99489275988B9001C858B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CFE9948B275988B9001C858B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		CFE9948D275988B9001C858B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CFE99490275988B9001C858B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CFE99492275988BD001C858B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CFE99495275988BD001C858B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CFE99497275988BD001C858B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CFF4A8D9275D7136009C4FA2 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		D9691E13CC6F88EB206D71B8 /* Pods-KitchenShelfOrganizer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KitchenShelfOrganizer.debug.xcconfig"; path = "Target Support Files/Pods-KitchenShelfOrganizer/Pods-KitchenShelfOrganizer.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CFE99483275988B8001C858B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				46053C46950C78DB48EC7832 /* Pods_KitchenShelfOrganizer.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8ACACE612B479BE4043D98DA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D9691E13CC6F88EB206D71B8 /* Pods-KitchenShelfOrganizer.debug.xcconfig */,
+				66CEEEE97DB3C59A16A3270A /* Pods-KitchenShelfOrganizer.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		9B52F2B47552AF56522DE41B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				707EF070326EB3A9A6D4AFE6 /* Pods_KitchenShelfOrganizer.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CFE9947D275988B8001C858B = {
+			isa = PBXGroup;
+			children = (
+				CFE99488275988B9001C858B /* KitchenShelfOrganizer */,
+				CFE99487275988B8001C858B /* Products */,
+				8ACACE612B479BE4043D98DA /* Pods */,
+				9B52F2B47552AF56522DE41B /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		CFE99487275988B8001C858B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CFE99486275988B8001C858B /* KitchenShelfOrganizer.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CFE99488275988B9001C858B /* KitchenShelfOrganizer */ = {
+			isa = PBXGroup;
+			children = (
+				CFF4A8DB275D7327009C4FA2 /* model */,
+				CFE994A027598C2C001C858B /* controllers */,
+				CFE9949D27598B73001C858B /* view */,
+				CFE99489275988B9001C858B /* AppDelegate.swift */,
+				CFE9948B275988B9001C858B /* SceneDelegate.swift */,
+				CFE99492275988BD001C858B /* Assets.xcassets */,
+				CFE99494275988BD001C858B /* LaunchScreen.storyboard */,
+				CFE99497275988BD001C858B /* Info.plist */,
+			);
+			path = KitchenShelfOrganizer;
+			sourceTree = "<group>";
+		};
+		CFE9949D27598B73001C858B /* view */ = {
+			isa = PBXGroup;
+			children = (
+				CFE9948F275988B9001C858B /* Main.storyboard */,
+				CFF4A8D9275D7136009C4FA2 /* CustomTableViewCell.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		CFE994A027598C2C001C858B /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CFE9948D275988B9001C858B /* ViewController.swift */,
+				CF8C2F88275E267D00CA944A /* AddItemViewController.swift */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		CFF4A8DB275D7327009C4FA2 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				CFCF874D275DB17000E77051 /* ItemInfo.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CFE99485275988B8001C858B /* KitchenShelfOrganizer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CFE9949A275988BD001C858B /* Build configuration list for PBXNativeTarget "KitchenShelfOrganizer" */;
+			buildPhases = (
+				67180B927B9EEACF5E15EED5 /* [CP] Check Pods Manifest.lock */,
+				CFE99482275988B8001C858B /* Sources */,
+				CFE99483275988B8001C858B /* Frameworks */,
+				CFE99484275988B8001C858B /* Resources */,
+				3247F7B3CB6A72C9E5C41E0E /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KitchenShelfOrganizer;
+			productName = KitchenShelfOrganizer;
+			productReference = CFE99486275988B8001C858B /* KitchenShelfOrganizer.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CFE9947E275988B8001C858B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1300;
+				LastUpgradeCheck = 1300;
+				TargetAttributes = {
+					CFE99485275988B8001C858B = {
+						CreatedOnToolsVersion = 13.0;
+					};
+				};
+			};
+			buildConfigurationList = CFE99481275988B8001C858B /* Build configuration list for PBXProject "KitchenShelfOrganizer" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CFE9947D275988B8001C858B;
+			productRefGroup = CFE99487275988B8001C858B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CFE99485275988B8001C858B /* KitchenShelfOrganizer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CFE99484275988B8001C858B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFE99496275988BD001C858B /* LaunchScreen.storyboard in Resources */,
+				CFE99493275988BD001C858B /* Assets.xcassets in Resources */,
+				CFE99491275988B9001C858B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3247F7B3CB6A72C9E5C41E0E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-KitchenShelfOrganizer/Pods-KitchenShelfOrganizer-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-KitchenShelfOrganizer/Pods-KitchenShelfOrganizer-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KitchenShelfOrganizer/Pods-KitchenShelfOrganizer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		67180B927B9EEACF5E15EED5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KitchenShelfOrganizer-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CFE99482275988B8001C858B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFF4A8DA275D7136009C4FA2 /* CustomTableViewCell.swift in Sources */,
+				CFE9948E275988B9001C858B /* ViewController.swift in Sources */,
+				CFE9948A275988B9001C858B /* AppDelegate.swift in Sources */,
+				CFCF874E275DB17000E77051 /* ItemInfo.swift in Sources */,
+				CFE9948C275988B9001C858B /* SceneDelegate.swift in Sources */,
+				CF8C2F89275E267D00CA944A /* AddItemViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		CFE9948F275988B9001C858B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CFE99490275988B9001C858B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CFE99494275988BD001C858B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CFE99495275988BD001C858B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CFE99498275988BD001C858B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CFE99499275988BD001C858B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CFE9949B275988BD001C858B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D9691E13CC6F88EB206D71B8 /* Pods-KitchenShelfOrganizer.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = KitchenShelfOrganizer/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.northeastern.deepika.KitchenShelfOrganizer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CFE9949C275988BD001C858B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 66CEEEE97DB3C59A16A3270A /* Pods-KitchenShelfOrganizer.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = KitchenShelfOrganizer/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.northeastern.deepika.KitchenShelfOrganizer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CFE99481275988B8001C858B /* Build configuration list for PBXProject "KitchenShelfOrganizer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFE99498275988BD001C858B /* Debug */,
+				CFE99499275988BD001C858B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CFE9949A275988BD001C858B /* Build configuration list for PBXNativeTarget "KitchenShelfOrganizer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFE9949B275988BD001C858B /* Debug */,
+				CFE9949C275988BD001C858B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CFE9947E275988B8001C858B /* Project object */;
+}
