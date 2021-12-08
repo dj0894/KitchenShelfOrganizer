@@ -11,4 +11,8 @@ target 'KitchenShelfOrganizer' do
   pod 'Alamofire'
   pod 'SwiftSpinner'
   pod 'PromiseKit'
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Firestore'
+  pod 'Firebase/Core'
 end

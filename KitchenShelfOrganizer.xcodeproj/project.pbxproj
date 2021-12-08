@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		46053C46950C78DB48EC7832 /* Pods_KitchenShelfOrganizer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 707EF070326EB3A9A6D4AFE6 /* Pods_KitchenShelfOrganizer.framework */; };
+		CF7A9561275F72F6008DF672 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7A9560275F72F6008DF672 /* SignUpViewController.swift */; };
+		CF7A9563275F730E008DF672 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7A9562275F730E008DF672 /* LoginViewController.swift */; };
+		CF7A9565275F7366008DF672 /* FirstScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7A9564275F7366008DF672 /* FirstScreenViewController.swift */; };
+		CF7A9568275F8471008DF672 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF7A9567275F8471008DF672 /* GoogleService-Info.plist */; };
+		CF805F49275FE89A00F3DE6A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF805F48275FE89A00F3DE6A /* Constants.swift */; };
 		CF8C2F89275E267D00CA944A /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8C2F88275E267D00CA944A /* AddItemViewController.swift */; };
 		CF8C2F8C275EAFAF00CA944A /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8C2F8A275EAFAF00CA944A /* CustomTableViewCell.swift */; };
 		CF8C2F8D275EAFAF00CA944A /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF8C2F8B275EAFAF00CA944A /* CustomTableViewCell.xib */; };
@@ -23,6 +28,11 @@
 /* Begin PBXFileReference section */
 		66CEEEE97DB3C59A16A3270A /* Pods-KitchenShelfOrganizer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KitchenShelfOrganizer.release.xcconfig"; path = "Target Support Files/Pods-KitchenShelfOrganizer/Pods-KitchenShelfOrganizer.release.xcconfig"; sourceTree = "<group>"; };
 		707EF070326EB3A9A6D4AFE6 /* Pods_KitchenShelfOrganizer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KitchenShelfOrganizer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF7A9560275F72F6008DF672 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		CF7A9562275F730E008DF672 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		CF7A9564275F7366008DF672 /* FirstScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreenViewController.swift; sourceTree = "<group>"; };
+		CF7A9567275F8471008DF672 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CF805F48275FE89A00F3DE6A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CF8C2F88275E267D00CA944A /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
 		CF8C2F8A275EAFAF00CA944A /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		CF8C2F8B275EAFAF00CA944A /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
@@ -67,6 +77,21 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CF7A9566275F806E008DF672 /* helpers */ = {
+			isa = PBXGroup;
+			children = (
+				CF805F48275FE89A00F3DE6A /* Constants.swift */,
+			);
+			path = helpers;
+			sourceTree = "<group>";
+		};
+		CF805F4D275FF18400F3DE6A /* media */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = media;
+			sourceTree = "<group>";
+		};
 		CFE9947D275988B8001C858B = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +113,8 @@
 		CFE99488275988B9001C858B /* KitchenShelfOrganizer */ = {
 			isa = PBXGroup;
 			children = (
+				CF805F4D275FF18400F3DE6A /* media */,
+				CF7A9566275F806E008DF672 /* helpers */,
 				CFF4A8DB275D7327009C4FA2 /* model */,
 				CFE994A027598C2C001C858B /* controllers */,
 				CFE9949D27598B73001C858B /* view */,
@@ -96,6 +123,7 @@
 				CFE99492275988BD001C858B /* Assets.xcassets */,
 				CFE99494275988BD001C858B /* LaunchScreen.storyboard */,
 				CFE99497275988BD001C858B /* Info.plist */,
+				CF7A9567275F8471008DF672 /* GoogleService-Info.plist */,
 			);
 			path = KitchenShelfOrganizer;
 			sourceTree = "<group>";
@@ -115,6 +143,9 @@
 			children = (
 				CFE9948D275988B9001C858B /* ViewController.swift */,
 				CF8C2F88275E267D00CA944A /* AddItemViewController.swift */,
+				CF7A9560275F72F6008DF672 /* SignUpViewController.swift */,
+				CF7A9562275F730E008DF672 /* LoginViewController.swift */,
+				CF7A9564275F7366008DF672 /* FirstScreenViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -189,6 +220,7 @@
 			files = (
 				CFE99496275988BD001C858B /* LaunchScreen.storyboard in Resources */,
 				CFE99493275988BD001C858B /* Assets.xcassets in Resources */,
+				CF7A9568275F8471008DF672 /* GoogleService-Info.plist in Resources */,
 				CF8C2F8D275EAFAF00CA944A /* CustomTableViewCell.xib in Resources */,
 				CFE99491275988B9001C858B /* Main.storyboard in Resources */,
 			);
@@ -244,10 +276,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF8C2F8C275EAFAF00CA944A /* CustomTableViewCell.swift in Sources */,
+				CF7A9561275F72F6008DF672 /* SignUpViewController.swift in Sources */,
 				CFE9948E275988B9001C858B /* ViewController.swift in Sources */,
 				CFE9948A275988B9001C858B /* AppDelegate.swift in Sources */,
+				CF7A9563275F730E008DF672 /* LoginViewController.swift in Sources */,
+				CF805F49275FE89A00F3DE6A /* Constants.swift in Sources */,
 				CFCF874E275DB17000E77051 /* ItemInfo.swift in Sources */,
 				CFE9948C275988B9001C858B /* SceneDelegate.swift in Sources */,
+				CF7A9565275F7366008DF672 /* FirstScreenViewController.swift in Sources */,
 				CF8C2F89275E267D00CA944A /* AddItemViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -398,6 +434,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 656XND5X67;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = KitchenShelfOrganizer/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -426,6 +463,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 656XND5X67;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = KitchenShelfOrganizer/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

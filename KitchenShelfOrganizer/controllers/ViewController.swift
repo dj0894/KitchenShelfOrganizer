@@ -26,6 +26,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
     }
     
+
+    
 //    func checkForUpdatedDB(){
 //        let realm=try! Realm()
 //
