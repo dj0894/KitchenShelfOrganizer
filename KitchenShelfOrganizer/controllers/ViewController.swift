@@ -13,7 +13,6 @@ import SwiftSpinner
 import PromiseKit
 
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
-    
     @IBOutlet weak var displayItemsTblView: UITableView!
     let datePicker=UIDatePicker();
     var arrItemInfo:[ItemInfo] = [ItemInfo]()
@@ -25,8 +24,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         loadItemsFromDB()
         
     }
-    
-
     
 //    func checkForUpdatedDB(){
 //        let realm=try! Realm()
@@ -43,7 +40,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell=Bundle.main.loadNibNamed("CustomTableViewCell", owner: self, options: nil)?.first as! CustomTableViewCell
@@ -54,9 +50,9 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         return cell
     }
     
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        return "Item Name             Expiry Date            PurchaseDate"
-//    }
+    //    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    //        return "Item Name             Expiry Date            PurchaseDate"
+    //    }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 50))
@@ -66,23 +62,18 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         label.font = .systemFont(ofSize: 15)
         label.textColor = .red
         label.backgroundColor=UIColor.yellow
-        
         headerView.addSubview(label)
         
         return headerView
     }
-    
-    
-    
+        
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-                    removeItemFromDB(arrItemInfo[indexPath.row])
-                    arrItemInfo.remove(at: indexPath.row)
-                    tableView.deleteRows(at: [indexPath], with: .fade)
-                }
+            removeItemFromDB(arrItemInfo[indexPath.row])
+            arrItemInfo.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
     }
-    
-
     
     @IBAction func addItemBarBtnAction(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "addItemSegue", sender: self)
@@ -109,7 +100,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     func removeItemFromDB(_ item : ItemInfo){
-        
         if(!arrItemInfo.contains(item)){
             return
         }
@@ -119,7 +109,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             let object=realm.objects(ItemInfo.self)
             if(object.count==0){
                 print("Database is Empty")
-                return 
+                return
             }
             try realm.write({
                 realm.delete(item)
@@ -127,8 +117,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         }catch{
             print("Error in deleting values from DB \(error)")
         }
-
-        
     }
      
 }

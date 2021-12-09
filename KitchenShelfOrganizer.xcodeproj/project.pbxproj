@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		46053C46950C78DB48EC7832 /* Pods_KitchenShelfOrganizer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 707EF070326EB3A9A6D4AFE6 /* Pods_KitchenShelfOrganizer.framework */; };
+		CF26C3DC2760A6AE00C40612 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF26C3DB2760A6AE00C40612 /* Utilities.swift */; };
 		CF7A9561275F72F6008DF672 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7A9560275F72F6008DF672 /* SignUpViewController.swift */; };
 		CF7A9563275F730E008DF672 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7A9562275F730E008DF672 /* LoginViewController.swift */; };
 		CF7A9565275F7366008DF672 /* FirstScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7A9564275F7366008DF672 /* FirstScreenViewController.swift */; };
@@ -17,10 +18,10 @@
 		CF8C2F8C275EAFAF00CA944A /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8C2F8A275EAFAF00CA944A /* CustomTableViewCell.swift */; };
 		CF8C2F8D275EAFAF00CA944A /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF8C2F8B275EAFAF00CA944A /* CustomTableViewCell.xib */; };
 		CFCF874E275DB17000E77051 /* ItemInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCF874D275DB17000E77051 /* ItemInfo.swift */; };
+		CFE459BB27614AF80019094B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFE9948F275988B9001C858B /* Main.storyboard */; };
 		CFE9948A275988B9001C858B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE99489275988B9001C858B /* AppDelegate.swift */; };
 		CFE9948C275988B9001C858B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE9948B275988B9001C858B /* SceneDelegate.swift */; };
 		CFE9948E275988B9001C858B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE9948D275988B9001C858B /* ViewController.swift */; };
-		CFE99491275988B9001C858B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFE9948F275988B9001C858B /* Main.storyboard */; };
 		CFE99493275988BD001C858B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFE99492275988BD001C858B /* Assets.xcassets */; };
 		CFE99496275988BD001C858B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFE99494275988BD001C858B /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -28,6 +29,7 @@
 /* Begin PBXFileReference section */
 		66CEEEE97DB3C59A16A3270A /* Pods-KitchenShelfOrganizer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KitchenShelfOrganizer.release.xcconfig"; path = "Target Support Files/Pods-KitchenShelfOrganizer/Pods-KitchenShelfOrganizer.release.xcconfig"; sourceTree = "<group>"; };
 		707EF070326EB3A9A6D4AFE6 /* Pods_KitchenShelfOrganizer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KitchenShelfOrganizer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF26C3DB2760A6AE00C40612 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		CF7A9560275F72F6008DF672 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		CF7A9562275F730E008DF672 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CF7A9564275F7366008DF672 /* FirstScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreenViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				CF805F48275FE89A00F3DE6A /* Constants.swift */,
+				CF26C3DB2760A6AE00C40612 /* Utilities.swift */,
 			);
 			path = helpers;
 			sourceTree = "<group>";
@@ -219,10 +222,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFE99496275988BD001C858B /* LaunchScreen.storyboard in Resources */,
+				CFE459BB27614AF80019094B /* Main.storyboard in Resources */,
 				CFE99493275988BD001C858B /* Assets.xcassets in Resources */,
 				CF7A9568275F8471008DF672 /* GoogleService-Info.plist in Resources */,
 				CF8C2F8D275EAFAF00CA944A /* CustomTableViewCell.xib in Resources */,
-				CFE99491275988B9001C858B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +280,7 @@
 			files = (
 				CF8C2F8C275EAFAF00CA944A /* CustomTableViewCell.swift in Sources */,
 				CF7A9561275F72F6008DF672 /* SignUpViewController.swift in Sources */,
+				CF26C3DC2760A6AE00C40612 /* Utilities.swift in Sources */,
 				CFE9948E275988B9001C858B /* ViewController.swift in Sources */,
 				CFE9948A275988B9001C858B /* AppDelegate.swift in Sources */,
 				CF7A9563275F730E008DF672 /* LoginViewController.swift in Sources */,

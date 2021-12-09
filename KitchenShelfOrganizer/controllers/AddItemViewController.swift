@@ -17,26 +17,35 @@ class AddItemViewController: UIViewController {
     @IBOutlet weak var itemNameTF: UITextField!
     @IBOutlet weak var expiryDateTF: UITextField!
     @IBOutlet weak var purchasedDateTF: UITextField!
-    @IBOutlet weak var msgLbl: UILabel!
+    @IBOutlet weak var statusLbl: UILabel!
     let datePicker=UIDatePicker();
     var arrItemInfo:[ItemInfo] = [ItemInfo]()
     var isItemAddedToDBFlag=false;
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpElements()
         createExpiryDatePicker() //create a datePicker
         createPurchaseDatePicker()
+    }
+    
+    func setUpElements(){
+        statusLbl.alpha=1
+        Utilities.styleVCPageHeading(statusLbl)
+        
+        
     }
    
     @IBAction func addItem(_ sender: UIButton) {
         if itemNameTF.text == nil || expiryDateTF.text == nil || purchasedDateTF.text == nil{
-            msgLbl.textColor=UIColor.red
-            msgLbl.text="Error: One or more value is empty"
+            
+            statusLbl.textColor=UIColor.red
+            statusLbl.text="Error: One or more value is empty"
            return
         }
         if (itemNameTF.text == ""){
-            msgLbl.textColor=UIColor.red
-            msgLbl.text="Error: Item name is empty"
+            statusLbl.textColor=UIColor.red
+            statusLbl.text="Error: Item name is empty"
             return
         }
         
@@ -65,7 +74,7 @@ class AddItemViewController: UIViewController {
         itemNameTF.text=""
         expiryDateTF.text=""
         purchasedDateTF.text=""
-        msgLbl.text=""
+        statusLbl.text=""
         if(isItemAddedToDBFlag){
             performSegue(withIdentifier: "addItemSegueToDisplayItemViewController", sender: self)
         }
@@ -118,20 +127,20 @@ class AddItemViewController: UIViewController {
         do{
             let realm = try Realm()
             if(isStockAlreadyExist(itemInfo)){
-                msgLbl.textColor=UIColor.red
-                msgLbl.text="Error: Item already exist in DB"
+                statusLbl.textColor=UIColor.red
+                statusLbl.text="Error: Item already exist in DB"
                 return
             }
             try realm.write{
                 realm.add(itemInfo,update: .modified)
-                msgLbl.textColor=UIColor.green
-                msgLbl.text="Item successfully added in Database."
+                statusLbl.textColor=UIColor.green
+                statusLbl.text="Item successfully added in Database."
                 isItemAddedToDBFlag=true;
                 return
             }
         }catch{
-            msgLbl.textColor=UIColor.red
-            msgLbl.text="Error in adding values to Database: \(error)"
+            statusLbl.textColor=UIColor.red
+            statusLbl.text="Error in adding values to Database: \(error)"
             return
         }
     }
@@ -144,8 +153,8 @@ class AddItemViewController: UIViewController {
                 return true;
             }
         } catch{
-            msgLbl.textColor=UIColor.red
-            msgLbl.text="Error in getting value\(error)"
+            statusLbl.textColor=UIColor.red
+            statusLbl.text="Error in getting value\(error)"
         }
         return false;
     }
@@ -159,8 +168,8 @@ class AddItemViewController: UIViewController {
                 arrItemInfo.append(items[i])
             }
         } catch{
-            msgLbl.textColor=UIColor.red
-            msgLbl.text="Error occured in fetching items from Database: \(error)"
+            statusLbl.textColor=UIColor.red
+            statusLbl.text="Error occured in fetching items from Database: \(error)"
         }
     }
    
