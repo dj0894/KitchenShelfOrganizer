@@ -64,7 +64,6 @@ class SignUpViewController: UIViewController {
                             Utilities.styleStatusLabelForError(lbl: self.statusLbl,error: error!.localizedDescription)
                         }
                     }
-                    
                     let successMessage="User's signed up successfully. Proceed to login Page."
                     Utilities.styleStatusLabelForSuccess(lbl: self.statusLbl, successMsg: successMessage)
                     Utilities.addDelay()
@@ -75,6 +74,8 @@ class SignUpViewController: UIViewController {
         }
        
     }
+    
+    
     
     func clearFeilds(){
         firstNameTF.text = ""

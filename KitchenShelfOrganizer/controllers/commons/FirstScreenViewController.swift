@@ -42,8 +42,9 @@ class FirstScreenViewController: UIViewController {
     
     
     @IBAction func loginAnonymouslyBtnClick(_ sender: UIButton) {
-        guard let viewController=storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.homeVC) as? ViewController else { return }
-        self.navigationController?.pushViewController(viewController, animated: true)
+        guard let tableViewLocalDBVC=storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.tableViewLocalDBVC) as? TableViewLocalDBVC
+        else { return }
+        self.navigationController?.pushViewController(tableViewLocalDBVC, animated: true)
         
     }
 }

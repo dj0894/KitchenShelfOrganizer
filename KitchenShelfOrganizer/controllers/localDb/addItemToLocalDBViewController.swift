@@ -12,7 +12,7 @@ import SwiftyJSON
 import SwiftSpinner
 import PromiseKit
 
-class AddItemViewController: UIViewController {
+class addItemToLocalDBViewController: UIViewController {
 
     @IBOutlet weak var itemNameTF: UITextField!
     @IBOutlet weak var expiryDateTF: UITextField!

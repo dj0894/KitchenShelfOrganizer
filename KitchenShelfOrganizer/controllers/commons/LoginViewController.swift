@@ -51,18 +51,24 @@ class LoginViewController: UIViewController {
             Auth.auth().signIn(withEmail: email!, password: password!) { (result, error) in
                 if error != nil {
                     Utilities.styleStatusLabelForError(lbl: self.statusLbl, error: error!.localizedDescription)
-                   
                     return
                 }else{
-                    self.transitionToHomeScreen()
+    
+//                    let userData = result?.user
+//                    print(userData?.email)
+//                    print(userData?.uid)
+                  self.transitionToTableViewServerDBDataVC()
+                   
                 }
             }
         }
     }
     
-    
-    func  transitionToHomeScreen(){
-        guard let viewController=storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.homeVC) as? ViewController else { return }
-        self.navigationController?.pushViewController(viewController, animated: true)
+
+    func  transitionToTableViewServerDBDataVC(){
+        
+        guard let tableViewServerDataVC=storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.tableViewServerDataVC) as? TableViewServerDBData else { return }
+        self.navigationController?.pushViewController(tableViewServerDataVC, animated: true)
+
     }
 }

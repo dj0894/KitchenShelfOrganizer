@@ -1,8 +1,8 @@
 //
-//  ViewController.swift
+//  TableViewLocalDBVC.swift
 //  KitchenShelfOrganizer
 //
-//  Created by Deepika Jha on 02/12/21.
+//  Created by Deepika Jha on 09/12/21.
 //
 
 import UIKit
@@ -12,28 +12,28 @@ import SwiftyJSON
 import SwiftSpinner
 import PromiseKit
 
-class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class TableViewLocalDBVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
+
     @IBOutlet weak var displayItemsTblView: UITableView!
+    
     let datePicker=UIDatePicker();
     var arrItemInfo:[ItemInfo] = [ItemInfo]()
+    
+    @IBOutlet weak var pageHeadingLbl: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         displayItemsTblView.delegate=self
         displayItemsTblView.dataSource=self
-       // checkForUpdatedDB()
         loadItemsFromDB()
+        setUpElements()
         
     }
     
-//    func checkForUpdatedDB(){
-//        let realm=try! Realm()
-//
-//    }
+    func setUpElements(){
+        Utilities.stylePageHeadlingLbl(lbl: pageHeadingLbl)
+    }
     
-//    @objc func refreshData(){
-//        loadItemsFromDB()
-//        self.refreshControl?.endRefreshing()
-//    }
+
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrItemInfo.count
@@ -94,9 +94,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             arrItemInfo.append(itemsFromDB[i])
         }
         
-        print(arrItemInfo)
-        //reload Data in table
-        self.displayItemsTblView.reloadData()
+        self.displayItemsTblView.reloadData()  //reload Data in table
     }
     
     func removeItemFromDB(_ item : ItemInfo){
@@ -118,6 +116,5 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             print("Error in deleting values from DB \(error)")
         }
     }
-     
-}
 
+}

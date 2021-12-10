@@ -10,7 +10,9 @@ import Foundation
 struct Constants{
     
     struct Storyboard{
-        static let homeVC = "HomeVC"
+        //Storyboard identifier for each View controller
+        static let tableViewLocalDBVC = "TableViewLocalDBVC"
         static let firstScreenVC = "FirstScreenVC"
+        static let tableViewServerDataVC = "TableViewServerDataVC" //(TableViewServerDataVC) is storyBoard identfier
     }
 }
