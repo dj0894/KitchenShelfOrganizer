@@ -15,15 +15,10 @@ class AddItemToServerDB: UIViewController {
 
     @IBOutlet weak var statusLbl: UILabel!
     @IBOutlet weak var pageHeadingLbl: UILabel!
-    
     @IBOutlet weak var itemNameTF: UITextField!
-    
     @IBOutlet weak var expiryDateTF: UITextField!
-    
     @IBOutlet weak var purchaseDateTF: UITextField!
-    
     @IBOutlet weak var addItemBtn: UIButton!
-    
     var arrItemInfo:[ItemInfo] = [ItemInfo]()
     
     let datePicker=UIDatePicker();
@@ -87,7 +82,6 @@ class AddItemToServerDB: UIViewController {
         tableViewServerDataVC.arrItemInfo = arrItemInfo
         self.navigationController?.pushViewController(tableViewServerDataVC, animated: true)
     }
-
     
     func validateUserInput()->String?{
         //TODo code for validate userInput

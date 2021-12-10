@@ -25,7 +25,10 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var signUpBtn: UIButton!
     
     @IBOutlet weak var statusLbl: UILabel!
-
+    
+    
+    @IBOutlet weak var alreadyMemberLoginBtn: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpElements()
@@ -68,7 +71,7 @@ class SignUpViewController: UIViewController {
                     Utilities.styleStatusLabelForSuccess(lbl: self.statusLbl, successMsg: successMessage)
                     Utilities.addDelay()
                     self.clearFeilds()
-                    //self.transitionToFirstScreen() //Todo: Not working fix it
+                   // self.goToLoginScreen() //Todo: Not working fix it
                 }
             }
         }
@@ -76,6 +79,10 @@ class SignUpViewController: UIViewController {
     }
     
     
+    @IBAction func goToLoginScreen(_ sender: Any) {
+        guard let loginScreenVC=storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.loginScreenVC) as? LoginViewController else { return}
+        self.navigationController?.pushViewController(loginScreenVC, animated: true)
+    }
     
     func clearFeilds(){
         firstNameTF.text = ""

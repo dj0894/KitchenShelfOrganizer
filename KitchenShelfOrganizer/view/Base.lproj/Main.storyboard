@@ -115,8 +115,17 @@
                                     <action selector="signupBtnClick:" destination="qNI-k6-TGa" eventType="touchUpInside" id="KZA-RE-gXZ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JsS-Mu-gud">
+                                <rect key="frame" x="72" y="550" width="277" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="already a member? click to login"/>
+                                <connections>
+                                    <action selector="goToLoginScreen:" destination="qNI-k6-TGa" eventType="touchUpInside" id="2d9-Sl-w0C"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Status" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rNk-pq-817">
-                                <rect key="frame" x="72" y="551" width="277" height="50"/>
+                                <rect key="frame" x="72" y="610" width="277" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -130,6 +139,7 @@
                         <barButtonItem key="backBarButtonItem" title="back" id="hXR-64-eSC"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="alreadyMemberLoginBtn" destination="JsS-Mu-gud" id="XpT-ps-THV"/>
                         <outlet property="emailTF" destination="ZdJ-d1-N9m" id="cuo-FT-dGg"/>
                         <outlet property="firstNameTF" destination="qJU-cS-uFb" id="A1Y-9y-ZSv"/>
                         <outlet property="lastNameTF" destination="4fA-Ua-eV5" id="HEt-1G-to1"/>
@@ -141,7 +151,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FnB-Pi-qxq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2032" y="344"/>
+            <point key="canvasLocation" x="2031.8840579710147" y="343.52678571428572"/>
         </scene>
         <!--Table View LocalDBVC-->
         <scene sceneID="oPh-9w-YUR">
@@ -193,7 +203,7 @@
         <!--LoginViewController-->
         <scene sceneID="DP6-yM-kc1">
             <objects>
-                <viewController title="LoginViewController" id="fD7-Jv-B1Y" customClass="LoginViewController" customModule="KitchenShelfOrganizer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginScreenVC" title="LoginViewController" id="fD7-Jv-B1Y" customClass="LoginViewController" customModule="KitchenShelfOrganizer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="biR-EE-R4E">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -217,6 +227,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2zU-tW-hj9">
                                         <rect key="frame" x="0.0" y="180" width="374" height="50"/>
                                         <color key="backgroundColor" red="0.083214551489999997" green="0.76939731840000003" blue="0.40610304400000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Login"/>
                                         <connections>
@@ -265,7 +276,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZtM-u6-Tbk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1930" y="-323"/>
+            <point key="canvasLocation" x="2196" y="-325"/>
         </scene>
         <!--table view server data-->
         <scene sceneID="6ym-6R-Jms">
@@ -282,15 +293,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="mIa-bn-dTu">
-                                <rect key="frame" x="0.0" y="257" width="414" height="501"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="mIa-bn-dTu">
+                                <rect key="frame" x="0.0" y="257" width="400" height="311"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="jHz-XE-eWo">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="39" id="jHz-XE-eWo">
+                                        <rect key="frame" x="0.0" y="44.5" width="400" height="39"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jHz-XE-eWo" id="J3K-up-6ND">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="400" height="39"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -299,10 +311,6 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ih5-ky-1Qj"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="ih5-ky-1Qj" firstAttribute="trailing" secondItem="mIa-bn-dTu" secondAttribute="trailing" id="EU2-YJ-mVW"/>
-                            <constraint firstItem="mIa-bn-dTu" firstAttribute="leading" secondItem="ih5-ky-1Qj" secondAttribute="leading" id="GMx-ye-GMN"/>
-                        </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="RSC-Fd-mkR">

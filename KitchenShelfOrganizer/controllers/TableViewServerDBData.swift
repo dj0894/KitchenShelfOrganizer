@@ -20,15 +20,12 @@ class TableViewServerDBData: UIViewController,UITableViewDelegate,UITableViewDat
     var arrItemInfo:[ItemInfo] = [ItemInfo]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchDataFromServer()
-        displayServerDataTblView.reloadData()
         displayServerDataTblView.delegate=self
         displayServerDataTblView.dataSource=self
+        fetchDataFromServer()
         setUpElements()
-  
     }
   
-    
     func setUpElements(){
         Utilities.stylePageHeadlingLbl(lbl: pageHeadingLbl)
     }
@@ -39,6 +36,7 @@ class TableViewServerDBData: UIViewController,UITableViewDelegate,UITableViewDat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell=Bundle.main.loadNibNamed("CustomTableViewCell", owner: self, options: nil)?.first as! CustomTableViewCell
+    
         cell.itemNameLbl.text!="\(arrItemInfo[indexPath.row].itemName)"
         cell.expiryDateLbl.text!="\(arrItemInfo[indexPath.row].expiryDate)"
         cell.purchaseDateLbl.text!="\(arrItemInfo[indexPath.row].purchaseDate)"
@@ -53,6 +51,7 @@ class TableViewServerDBData: UIViewController,UITableViewDelegate,UITableViewDat
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
+                self.arrItemInfo.removeAll()
                 for document in querySnapshot!.documents {
                     //print("\(document.documentID) => \(document.data())")
                     let itemInfo=ItemInfo()
@@ -61,9 +60,9 @@ class TableViewServerDBData: UIViewController,UITableViewDelegate,UITableViewDat
                     itemInfo.expiryDate = docDetails["expiryDate"] as! String
                     itemInfo.purchaseDate = docDetails["purchaseDate"] as! String
                     self.arrItemInfo.append(itemInfo)
-                    self.displayServerDataTblView.reloadData()
                 }
-                
+                print(self.arrItemInfo)
+                self.displayServerDataTblView.reloadData()
             }
         }
         
