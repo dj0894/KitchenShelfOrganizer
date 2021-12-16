@@ -13,15 +13,11 @@ import SwiftSpinner
 import PromiseKit
 
 class addItemToLocalDBViewController: UIViewController {
-
-    
     @IBOutlet weak var itemNameTF: UITextField!
     @IBOutlet weak var expiryDateTF: UITextField!
     @IBOutlet weak var purchasedDateTF: UITextField!
     @IBOutlet weak var statusLbl: UILabel!
-    
     @IBOutlet weak var pageHeadingLbl: UILabel!
-    
     @IBOutlet weak var addItemToLocalDB: UIButton!
     let datePicker=UIDatePicker();
     var arrItemInfo:[ItemInfo] = [ItemInfo]()
@@ -42,7 +38,7 @@ class addItemToLocalDBViewController: UIViewController {
         Utilities.styleTextField(purchasedDateTF)
         Utilities.setRoundedBorderButton(btn: addItemToLocalDB)
     }
-   
+    
     @IBAction func addItem(_ sender: UIButton) {
         if itemNameTF.text == nil || expiryDateTF.text == nil || purchasedDateTF.text == nil{
             statusLbl.alpha = 1
@@ -84,7 +80,6 @@ class addItemToLocalDBViewController: UIViewController {
         if(isItemAddedToDBFlag){
             guard let tableViewLocalDBVC=storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.tableViewLocalDBVC) as? TableViewLocalDBVC else { return }
             self.navigationController?.pushViewController(tableViewLocalDBVC, animated: true)
-
         }
     }
     
@@ -149,8 +144,7 @@ class addItemToLocalDBViewController: UIViewController {
             return
         }
     }
-    
-    
+
     func isStockAlreadyExist(_ itemInfo:ItemInfo) -> Bool{
         do {
             let realm=try Realm()
@@ -176,6 +170,4 @@ class addItemToLocalDBViewController: UIViewController {
             Utilities.styleStatusLabelForError(lbl: statusLbl, error: error.localizedDescription)
         }
     }
-   
-
 }

@@ -18,12 +18,20 @@ class TableViewLocalDBVC: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     @IBOutlet weak var sortingStackView: UIStackView!
     
+    @IBOutlet weak var sortByItemNameBtn: UIButton!
+    
     @IBOutlet weak var sortByPurchaseDateBtn: UIButton!
+    
     @IBOutlet weak var sortByExpiryDateBtn: UIButton!
-    @IBOutlet weak var sortByItemName: UIButton!
+    
+    
     @IBOutlet weak var pageHeadingLbl: UILabel!
     @IBOutlet weak var addItemBarBtn: UIBarButtonItem!
     
+    
+    
+    
+   
     let datePicker=UIDatePicker();
     var arrItemInfo:[ItemInfo] = [ItemInfo]()
     
@@ -39,9 +47,10 @@ class TableViewLocalDBVC: UIViewController,UITableViewDelegate,UITableViewDataSo
     func setUpElements(){
         Utilities.stylePageHeadlingLbl(lbl: pageHeadingLbl)
         Utilities.styleSortingStackView(stackView: sortingStackView)
-        Utilities.styleSortingBtn(btn: sortByItemName)
+        Utilities.styleSortingBtn(btn: sortByItemNameBtn)
         Utilities.styleSortingBtn(btn: sortByExpiryDateBtn)
         Utilities.styleSortingBtn(btn: sortByPurchaseDateBtn)
+        Utilities.styleUIBarBtn(barBtn: addItemBarBtn)
     }
     
 
@@ -76,6 +85,7 @@ class TableViewLocalDBVC: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
     
     func loadItemsFromDB(){
+        SwiftSpinner.show("Fetching item list from database", animated: true)
         print(Realm.Configuration.defaultConfiguration.fileURL!)
         let realm = try! Realm()
         let itemsFromDB=realm.objects(ItemInfo.self)
@@ -91,6 +101,7 @@ class TableViewLocalDBVC: UIViewController,UITableViewDelegate,UITableViewDataSo
         }
         
         self.displayItemsTblView.reloadData()  //reload Data in table
+        SwiftSpinner.hide(nil)
     }
     
     func removeItemFromDB(_ item : ItemInfo){
@@ -112,5 +123,24 @@ class TableViewLocalDBVC: UIViewController,UITableViewDelegate,UITableViewDataSo
             print("Error in deleting values from DB \(error)")
         }
     }
+    
+ 
+    @IBAction func sortByItemNameBtnClick(_ sender: UIButton) {
+        arrItemInfo=Utilities.sortArrayItemInfoByItemName(arr:arrItemInfo)
+        displayItemsTblView.reloadData()
+    }
+    
+    @IBAction func sortByExpiryDateBtnClick(_ sender: UIButton) {
+        arrItemInfo=Utilities.sortArrayItemInfoByExpiryDate(arr:arrItemInfo)
+        displayItemsTblView.reloadData()
+    }
+    
+    @IBAction func sortByPurchaseDateBtnClick(_ sender: UIButton) {
+        arrItemInfo=Utilities.sortArrayItemInfoByPurchaseDate(arr:arrItemInfo)
+        displayItemsTblView.reloadData()
+    }
+    
 
+  
+    
 }

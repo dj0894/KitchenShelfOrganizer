@@ -47,7 +47,6 @@ class AddItemToServerDB: UIViewController {
         if error != nil {
             Utilities.styleStatusLabelForError(lbl: statusLbl, error: error!)
         }
-        
         //add data to server
         let itemName = itemNameTF.text?.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
         let expiryDate = expiryDateTF.text?.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
@@ -71,9 +70,8 @@ class AddItemToServerDB: UIViewController {
                     self.transitionToTableViewServerDBDataVC()
                 }
         }
- 
     }
-        
+    
     func updateArrItemInfo(itemId: String,itemName:String,expiryDate:String,purchaseDate:String){
         let itemInfo = ItemInfo()
         itemInfo.id = itemId
@@ -90,7 +88,6 @@ class AddItemToServerDB: UIViewController {
     }
     
     func validateUserInput()->String?{
-        //TODo code for validate userInput
         let itemName=itemNameTF.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         let expiryDate=expiryDateTF.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         let purchaseDate=purchaseDateTF.text?.trimmingCharacters(in: .whitespacesAndNewlines)

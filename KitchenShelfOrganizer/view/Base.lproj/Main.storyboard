@@ -185,7 +185,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" subtitle="Item Name"/>
                                         <connections>
-                                            <action selector="sortByItemNameBtnClick:" destination="iBu-Kt-sdL" eventType="touchUpInside" id="lSW-oT-PsH"/>
+                                            <action selector="sortByItemNameBtnClick:" destination="L5U-60-B8w" eventType="touchUpInside" id="6Iw-in-0YZ"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MtR-aQ-xS3">
@@ -197,7 +197,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" subtitle="Expiry Date"/>
                                         <connections>
-                                            <action selector="sortByExpiryDateBtnClick:" destination="iBu-Kt-sdL" eventType="touchUpInside" id="LK9-7e-b4w"/>
+                                            <action selector="sortByExpiryDateBtnClick:" destination="L5U-60-B8w" eventType="touchUpInside" id="nHq-fP-OlC"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cam-U0-chz">
@@ -209,12 +209,12 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" subtitle="Purchase Date"/>
                                         <connections>
-                                            <action selector="sortByPurchaseDateBtnClick:" destination="iBu-Kt-sdL" eventType="touchUpInside" id="uNP-52-adg"/>
+                                            <action selector="sortByPurchaseDateBtnClick:" destination="L5U-60-B8w" eventType="touchUpInside" id="Ve2-Oq-SeP"/>
                                         </connections>
                                     </button>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Item List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xwi-SR-DXy">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Click &quot;+&quot; to Add Item" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xwi-SR-DXy">
                                 <rect key="frame" x="31" y="97" width="354" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -254,12 +254,12 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="addItemBarBtn" destination="gNm-p1-uyv" id="fus-Q0-ZtS"/>
-                        <outlet property="displayItemsTblView" destination="9pR-bd-DWh" id="UOz-wD-rSE"/>
+                        <outlet property="displayItemsTblView" destination="9pR-bd-DWh" id="jwM-ip-Oia"/>
                         <outlet property="pageHeadingLbl" destination="Xwi-SR-DXy" id="oCq-Ym-4F9"/>
-                        <outlet property="sortByExpiryDateBtn" destination="MtR-aQ-xS3" id="55J-2t-jeK"/>
-                        <outlet property="sortByItemName" destination="suM-hi-s0P" id="dCu-0e-wDh"/>
-                        <outlet property="sortByPurchaseDateBtn" destination="cam-U0-chz" id="G5e-Wr-0x6"/>
-                        <outlet property="sortingStackView" destination="Ji5-F4-Pkd" id="so6-3W-jQB"/>
+                        <outlet property="sortByExpiryDateBtn" destination="MtR-aQ-xS3" id="i3X-iM-F3B"/>
+                        <outlet property="sortByItemNameBtn" destination="suM-hi-s0P" id="Nug-1u-rc2"/>
+                        <outlet property="sortByPurchaseDateBtn" destination="cam-U0-chz" id="PtJ-ae-Ldq"/>
+                        <outlet property="sortingStackView" destination="Ji5-F4-Pkd" id="BA8-cX-HFG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pc5-Ug-sog" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -18,8 +18,7 @@ class Utilities{
         tf.frame.size.height=50
       
         NSLayoutConstraint.init(item: tf, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 50).isActive = true
-        
-
+ 
     }
     
     static func styleVCPageHeading(_ lbl:UILabel){
@@ -89,13 +88,30 @@ class Utilities{
     
     
     static func styleUIBarBtn(barBtn: UIBarButtonItem){
-        
+        //barBtn.backgroundColor = UIColor.green
     }
 
     
     static func addDelay(){
         DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {}
     }
+    
+    
+    static func sortArrayItemInfoByItemName(arr:[ItemInfo])->[ItemInfo]{
+        let sortedArray = arr.sorted(by: {$0.itemName<$1.itemName})
+        return sortedArray
+    }
+    
+    static func sortArrayItemInfoByExpiryDate(arr:[ItemInfo])->[ItemInfo]{
+        let sortedArray = arr.sorted(by: {$0.expiryDate<$1.expiryDate})
+        return sortedArray
+    }
+    
+    static func sortArrayItemInfoByPurchaseDate(arr:[ItemInfo])->[ItemInfo]{
+        let sortedArray = arr.sorted(by: {$0.purchaseDate<$1.purchaseDate})
+        return sortedArray
+    }
+    
     
     static func isValidPassword(_ password:String) -> Bool {
         // least one uppercase,

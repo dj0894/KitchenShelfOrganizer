@@ -14,15 +14,12 @@ import SwiftSpinner
 class TableViewServerDBData: UIViewController,UITableViewDelegate,UITableViewDataSource {
     @IBOutlet weak var pageHeadingLbl: UILabel!
     @IBOutlet weak var addBarBtn: UIBarButtonItem!
-    
     @IBOutlet weak var displayServerDataTblView: UITableView!
     @IBOutlet weak var sortByBtn: UIButton!
     @IBOutlet weak var sortStackView: UIStackView!
     @IBOutlet weak var sortByItemNameBtn: UIButton!
     @IBOutlet weak var sortByPurchaseDateBTn: UIButton!
     @IBOutlet weak var sortByExpiryDateBtn: UIButton!
-    
-    
     let datePicker=UIDatePicker();
     var arrItemInfo:[ItemInfo] = [ItemInfo]()
     
@@ -75,12 +72,11 @@ class TableViewServerDBData: UIViewController,UITableViewDelegate,UITableViewDat
                     itemInfo.purchaseDate = docDetails["purchaseDate"] as! String
                     self.arrItemInfo.append(itemInfo)
                 }
-                self.arrItemInfo = self.sortArrayItemInfoByItemName(arr: self.arrItemInfo)
+                self.arrItemInfo = Utilities.sortArrayItemInfoByItemName(arr: self.arrItemInfo)
                 self.displayServerDataTblView.reloadData()
                 SwiftSpinner.hide(nil)
             }
         }
-        
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -92,14 +88,11 @@ class TableViewServerDBData: UIViewController,UITableViewDelegate,UITableViewDat
             displayServerDataTblView.deleteRows(at: [indexPath], with: .fade)
         }
     }
-    
     func removeFromServerDB(item: ItemInfo){
-        
         print(arrItemInfo)
         print(item.id)
         
     }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "addBarBtnSegue" {
             let addItemToServerDBVC = segue.destination as! AddItemToServerDB
@@ -110,34 +103,18 @@ class TableViewServerDBData: UIViewController,UITableViewDelegate,UITableViewDat
     @IBAction func goToAddItemToServerDBVC(_ sender: Any) {
         performSegue(withIdentifier:"addBarBtnSegue",sender: self)
     }
-    
-    func sortArrayItemInfoByItemName(arr:[ItemInfo])->[ItemInfo]{
-        let sortedArray = arr.sorted(by: {$0.itemName<$1.itemName})
-        return sortedArray
-    }
-    
-    func sortArrayItemInfoByExpiryDate(arr:[ItemInfo])->[ItemInfo]{
-        let sortedArray = arr.sorted(by: {$0.expiryDate<$1.expiryDate})
-        return sortedArray
-    }
-    
-    func sortArrayItemInfoByPurchaseDate(arr:[ItemInfo])->[ItemInfo]{
-        let sortedArray = arr.sorted(by: {$0.purchaseDate<$1.purchaseDate})
-        return sortedArray
-    }
-    
-    
+
     @IBAction func sortByItemNameBtnClick(_ sender: UIButton) {
-        arrItemInfo=sortArrayItemInfoByItemName(arr:arrItemInfo)
+        arrItemInfo=Utilities.sortArrayItemInfoByItemName(arr:arrItemInfo)
         displayServerDataTblView.reloadData()
     }
     
     @IBAction func sortByPurchaseDateBtnClick(_ sender: UIButton) {
-        arrItemInfo=sortArrayItemInfoByPurchaseDate(arr:arrItemInfo)
+        arrItemInfo=Utilities.sortArrayItemInfoByPurchaseDate(arr:arrItemInfo)
         displayServerDataTblView.reloadData()
     }
     @IBAction func sortByExpiryDateBtnClick(_ sender: UIButton) {
-        arrItemInfo=sortArrayItemInfoByExpiryDate(arr:arrItemInfo)
+        arrItemInfo=Utilities.sortArrayItemInfoByExpiryDate(arr:arrItemInfo)
         displayServerDataTblView.reloadData()
     }
 }
