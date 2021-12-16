@@ -17,7 +17,7 @@
 		CF8C2F8C275EAFAF00CA944A /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8C2F8A275EAFAF00CA944A /* CustomTableViewCell.swift */; };
 		CF8C2F8D275EAFAF00CA944A /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF8C2F8B275EAFAF00CA944A /* CustomTableViewCell.xib */; };
 		CF9809D0276AFE6B00A150E2 /* FirstScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7A9564275F7366008DF672 /* FirstScreenViewController.swift */; };
-		CF9809D3276B00E800A150E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFE9948F275988B9001C858B /* Main.storyboard */; };
+		CF9809D7276B43DC00A150E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFE9948F275988B9001C858B /* Main.storyboard */; };
 		CFCF874E275DB17000E77051 /* ItemInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCF874D275DB17000E77051 /* ItemInfo.swift */; };
 		CFE459C12762BBF40019094B /* TableViewServerDBData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE459C02762BBF40019094B /* TableViewServerDBData.swift */; };
 		CFE459CB2762DF5F0019094B /* AddItemToServerDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE459C22762BC1A0019094B /* AddItemToServerDB.swift */; };
@@ -255,7 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFE99496275988BD001C858B /* LaunchScreen.storyboard in Resources */,
-				CF9809D3276B00E800A150E2 /* Main.storyboard in Resources */,
+				CF9809D7276B43DC00A150E2 /* Main.storyboard in Resources */,
 				CFE99493275988BD001C858B /* Assets.xcassets in Resources */,
 				CF7A9568275F8471008DF672 /* GoogleService-Info.plist in Resources */,
 				CF8C2F8D275EAFAF00CA944A /* CustomTableViewCell.xib in Resources */,

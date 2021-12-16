@@ -20,6 +20,9 @@ class TableViewServerDBData: UIViewController,UITableViewDelegate,UITableViewDat
     @IBOutlet weak var sortByItemNameBtn: UIButton!
     @IBOutlet weak var sortByPurchaseDateBTn: UIButton!
     @IBOutlet weak var sortByExpiryDateBtn: UIButton!
+    
+    @IBOutlet weak var logoutBtn: UIBarButtonItem!
+    
     let datePicker=UIDatePicker();
     var arrItemInfo:[ItemInfo] = [ItemInfo]()
     
@@ -128,4 +131,23 @@ class TableViewServerDBData: UIViewController,UITableViewDelegate,UITableViewDat
         arrItemInfo=Utilities.sortArrayItemInfoByExpiryDate(arr:arrItemInfo)
         displayServerDataTblView.reloadData()
     }
+    
+    
+    @IBAction func logoutBtnClick(_ sender: UIBarButtonItem) {
+        
+        let firebaseAuth = Auth.auth()
+        
+      do {
+        try firebaseAuth.signOut()
+      } catch let signOutError as NSError {
+        print("Error signing out: %@", signOutError)
+      }
+        self.transitionToLoginScreen()
+    }
+    
+    func transitionToLoginScreen(){
+        guard let loginScreenVC=storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.loginScreenVC) as? LoginViewController else { return}
+        self.navigationController?.pushViewController(loginScreenVC, animated: true)
+    }
+    
 }

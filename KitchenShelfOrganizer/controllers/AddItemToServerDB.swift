@@ -20,6 +20,10 @@ class AddItemToServerDB: UIViewController {
     @IBOutlet weak var expiryDateTF: UITextField!
     @IBOutlet weak var purchaseDateTF: UITextField!
     @IBOutlet weak var addItemBtn: UIButton!
+    
+    
+    @IBOutlet weak var logoutBtn: UIBarButtonItem!
+    
     var arrItemInfo:[ItemInfo] = [ItemInfo]()
     
     let datePicker=UIDatePicker();
@@ -60,13 +64,10 @@ class AddItemToServerDB: UIViewController {
             "itemName":itemName,
             "expiryDate":expiryDate,
             "purchaseDate":purchaseDate
-            
         ]){(err) in
                 if let err = err {
                     Utilities.styleStatusLabelForError(lbl: self.statusLbl, error:"\(err.localizedDescription)")
                 } else {
-                    
-                    
                     Utilities.styleStatusLabelForSuccess(lbl: self.statusLbl, successMsg: "Item added successfully")
                     self.updateArrItemInfo(itemId:itemId,itemName: itemName!,expiryDate: expiryDate!,purchaseDate: purchaseDate!)
                     self.transitionToTableViewServerDBDataVC()
@@ -81,7 +82,6 @@ class AddItemToServerDB: UIViewController {
         itemInfo.expiryDate = expiryDate
         itemInfo.purchaseDate = purchaseDate
         arrItemInfo.append(itemInfo)
-        print(arrItemInfo)
     }
     
     func transitionToTableViewServerDBDataVC(){
@@ -143,7 +143,23 @@ class AddItemToServerDB: UIViewController {
         self.view.endEditing(true)
     }
     
-  
+    
+    @IBAction func logoutBtnClick(_ sender: UIBarButtonItem) {
+        let firebaseAuth = Auth.auth()
+      do {
+        try firebaseAuth.signOut()
+      } catch let signOutError as NSError {
+        print("Error signing out: %@", signOutError)
+      }
+        self.transitionToLoginScreen()
+    }
+    
+    func transitionToLoginScreen(){
+        guard let loginScreenVC=storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.loginScreenVC) as? LoginViewController else { return}
+        self.navigationController?.pushViewController(loginScreenVC, animated: true)
+        
+    }
+    
 }
     
     

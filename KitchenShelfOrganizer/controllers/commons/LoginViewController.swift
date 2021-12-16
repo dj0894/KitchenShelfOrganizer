@@ -23,8 +23,10 @@ class LoginViewController: UIViewController {
     
     func setUpElements(){
         statusLbl.alpha=0
+        passwordTF.isSecureTextEntry = true
         Utilities.stylePageHeadlingLbl(lbl: pageHeadingLbl)
         Utilities.setRoundedBorderButton(btn: loginBtn)
+        
     
     }
  
@@ -50,18 +52,23 @@ class LoginViewController: UIViewController {
                     Utilities.styleStatusLabelForError(lbl: self.statusLbl, error: error!.localizedDescription)
                     return
                 }else{
-    
-                  self.transitionToTableViewServerDBDataVC()
+                    self.clearFields()
+                    self.transitionToTableViewServerDBDataVC()
                    
                 }
             }
         }
     }
     
-
+    
     func  transitionToTableViewServerDBDataVC(){
         guard let tableViewServerDataVC=storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.tableViewServerDataVC) as? TableViewServerDBData else { return }
         self.navigationController?.pushViewController(tableViewServerDataVC, animated: true)
 
+    }
+    
+    func clearFields(){
+        emailTF.text = ""
+        passwordTF.text = ""
     }
 }

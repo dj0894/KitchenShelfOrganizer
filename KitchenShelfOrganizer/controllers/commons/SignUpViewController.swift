@@ -35,6 +35,7 @@ class SignUpViewController: UIViewController {
     }
     func setUpElements(){
         statusLbl.alpha=0
+        passwordTF.isSecureTextEntry = true
         Utilities.styleTextField(firstNameTF)
         Utilities.styleTextField(lastNameTF)
         Utilities.styleTextField(emailTF)

@@ -432,19 +432,27 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="RSC-Fd-mkR">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="fOH-FF-FxN">
-                            <color key="tintColor" red="0.42488127609999998" green="0.73826609850000002" blue="0.76939731840000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            <connections>
-                                <action selector="goToAddItemToServerDBVC:" destination="iBu-Kt-sdL" id="2qR-rX-xiG"/>
-                                <segue destination="kS2-A6-KUi" kind="show" identifier="addBarBtnSegue" id="aRH-s8-muW"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Logout" id="ffa-Ra-fqY">
+                                <connections>
+                                    <action selector="logoutBtnClick:" destination="iBu-Kt-sdL" id="gKv-Qh-vS8"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="add" id="fOH-FF-FxN">
+                                <color key="tintColor" red="0.42488127609999998" green="0.73826609850000002" blue="0.76939731840000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <connections>
+                                    <action selector="goToAddItemToServerDBVC:" destination="iBu-Kt-sdL" id="2qR-rX-xiG"/>
+                                    <segue destination="kS2-A6-KUi" kind="show" identifier="addBarBtnSegue" id="aRH-s8-muW"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="addBarBtn" destination="fOH-FF-FxN" id="wKo-Q2-MZf"/>
                         <outlet property="displayServerDataTblView" destination="mIa-bn-dTu" id="giv-K4-N1D"/>
+                        <outlet property="logoutBtn" destination="ffa-Ra-fqY" id="fWV-2N-xiK"/>
                         <outlet property="pageHeadingLbl" destination="yJH-ud-zmU" id="V3X-6a-jZ0"/>
                         <outlet property="sortByExpiryDateBtn" destination="5Pb-0D-bY9" id="Y4y-NG-vAO"/>
                         <outlet property="sortByItemNameBtn" destination="8gy-sp-01N" id="h5S-tT-THT"/>
@@ -510,11 +518,18 @@
                         <viewLayoutGuide key="safeArea" id="KMK-Ek-4Pj"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Ddt-Wi-N8l"/>
+                    <navigationItem key="navigationItem" id="Ddt-Wi-N8l">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="aTp-b7-by1">
+                            <connections>
+                                <action selector="logoutBtnClick:" destination="kS2-A6-KUi" id="8jS-yT-nRT"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="addItemBtn" destination="mlG-tl-IRR" id="CYe-CB-kFa"/>
                         <outlet property="expiryDateTF" destination="hut-JX-gan" id="ehi-Gs-mlk"/>
                         <outlet property="itemNameTF" destination="Rhj-jx-Q5b" id="KOh-g6-W7g"/>
+                        <outlet property="logoutBtn" destination="aTp-b7-by1" id="vFJ-c6-EF7"/>
                         <outlet property="pageHeadingLbl" destination="HoU-rn-HUV" id="fHy-Qm-AYD"/>
                         <outlet property="purchaseDateTF" destination="wXf-bg-zmr" id="nmI-1G-GKv"/>
                         <outlet property="statusLbl" destination="dyX-5e-xxK" id="Mgz-Md-Ddj"/>
@@ -535,19 +550,19 @@
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Item Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eJN-f3-1Jz">
                                 <rect key="frame" x="53" y="269" width="308" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select Expiry Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rYh-NB-wXS">
                                 <rect key="frame" x="53" y="353" width="308" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select Purchased Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B6P-T5-Tic">
                                 <rect key="frame" x="53" y="431" width="308" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="brz-r1-3LH">
