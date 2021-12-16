@@ -9,6 +9,7 @@ import UIKit
 import Realm
 import FirebaseAuth
 import Firebase
+import SwiftSpinner
 
 
 class AddItemToServerDB: UIViewController {
@@ -23,6 +24,7 @@ class AddItemToServerDB: UIViewController {
     
     let datePicker=UIDatePicker();
     var isItemAddedToDBFlag=false;
+    var itemId: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,30 +49,34 @@ class AddItemToServerDB: UIViewController {
         }
         
         //add data to server
-        let itemName = itemNameTF.text?.trimmingCharacters(in: .whitespacesAndNewlines)
-        let expiryDate = expiryDateTF.text?.trimmingCharacters(in: .whitespacesAndNewlines)
-        let purchaseDate = purchaseDateTF.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        let itemName = itemNameTF.text?.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+        let expiryDate = expiryDateTF.text?.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+        let purchaseDate = purchaseDateTF.text?.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+        let itemId = UUID().uuidString
         let currentUserId = Auth.auth().currentUser?.uid
+        
         let db = Firestore.firestore()
         db.collection("itemList").document(currentUserId!).collection("items").addDocument(data:[
-                "itemName":itemName,
-                "expiryDate":expiryDate,
-                "purchaseDate":purchaseDate,
-                "itemId": UUID().uuidString
+            "itemId":itemId,
+            "itemName":itemName,
+            "expiryDate":expiryDate,
+            "purchaseDate":purchaseDate
+            
         ]){(err) in
                 if let err = err {
                     Utilities.styleStatusLabelForError(lbl: self.statusLbl, error:"\(err.localizedDescription)")
                 } else {
                     Utilities.styleStatusLabelForSuccess(lbl: self.statusLbl, successMsg: "Item added successfully")
-                    self.updateArrItemInfo(itemName: itemName!,expiryDate: expiryDate!,purchaseDate: purchaseDate!)
+                    self.updateArrItemInfo(itemId:itemId,itemName: itemName!,expiryDate: expiryDate!,purchaseDate: purchaseDate!)
                     self.transitionToTableViewServerDBDataVC()
                 }
         }
  
     }
         
-    func updateArrItemInfo(itemName:String,expiryDate:String,purchaseDate:String){
+    func updateArrItemInfo(itemId: String,itemName:String,expiryDate:String,purchaseDate:String){
         let itemInfo = ItemInfo()
+        itemInfo.id = itemId
         itemInfo.itemName = itemName
         itemInfo.expiryDate = expiryDate
         itemInfo.purchaseDate = purchaseDate

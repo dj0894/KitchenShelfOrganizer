@@ -14,10 +14,15 @@ import PromiseKit
 
 class addItemToLocalDBViewController: UIViewController {
 
+    
     @IBOutlet weak var itemNameTF: UITextField!
     @IBOutlet weak var expiryDateTF: UITextField!
     @IBOutlet weak var purchasedDateTF: UITextField!
     @IBOutlet weak var statusLbl: UILabel!
+    
+    @IBOutlet weak var pageHeadingLbl: UILabel!
+    
+    @IBOutlet weak var addItemToLocalDB: UIButton!
     let datePicker=UIDatePicker();
     var arrItemInfo:[ItemInfo] = [ItemInfo]()
     var isItemAddedToDBFlag=false;
@@ -30,22 +35,23 @@ class addItemToLocalDBViewController: UIViewController {
     }
     
     func setUpElements(){
-        statusLbl.alpha=1
-        Utilities.styleVCPageHeading(statusLbl)
-        
-        
+        statusLbl.alpha=0
+        Utilities.stylePageHeadlingLbl(lbl: pageHeadingLbl)
+        Utilities.styleTextField(itemNameTF)
+        Utilities.styleTextField(expiryDateTF)
+        Utilities.styleTextField(purchasedDateTF)
+        Utilities.setRoundedBorderButton(btn: addItemToLocalDB)
     }
    
     @IBAction func addItem(_ sender: UIButton) {
         if itemNameTF.text == nil || expiryDateTF.text == nil || purchasedDateTF.text == nil{
-            
-            statusLbl.textColor=UIColor.red
-            statusLbl.text="Error: One or more value is empty"
+            statusLbl.alpha = 1
+            Utilities.styleStatusLabelForError(lbl: statusLbl, error:"One or more value is empty")
            return
         }
         if (itemNameTF.text == ""){
-            statusLbl.textColor=UIColor.red
-            statusLbl.text="Error: Item name is empty"
+            statusLbl.alpha = 1
+            Utilities.styleStatusLabelForError(lbl: statusLbl, error: "Item name is empty")
             return
         }
         
@@ -76,7 +82,9 @@ class addItemToLocalDBViewController: UIViewController {
         purchasedDateTF.text=""
         statusLbl.text=""
         if(isItemAddedToDBFlag){
-            performSegue(withIdentifier: "addItemSegueToDisplayItemViewController", sender: self)
+            guard let tableViewLocalDBVC=storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.tableViewLocalDBVC) as? TableViewLocalDBVC else { return }
+            self.navigationController?.pushViewController(tableViewLocalDBVC, animated: true)
+
         }
     }
     
@@ -123,24 +131,21 @@ class addItemToLocalDBViewController: UIViewController {
     }
     
     func addItemToDB(_ itemInfo:ItemInfo){
-       // print(Realm.Configuration.defaultConfiguration.fileURL)
+        print(Realm.Configuration.defaultConfiguration.fileURL)
         do{
             let realm = try Realm()
             if(isStockAlreadyExist(itemInfo)){
-                statusLbl.textColor=UIColor.red
-                statusLbl.text="Error: Item already exist in DB"
+                Utilities.styleStatusLabelForError(lbl: statusLbl, error: "Error: Item already exist in DB")
                 return
             }
             try realm.write{
                 realm.add(itemInfo,update: .modified)
-                statusLbl.textColor=UIColor.green
-                statusLbl.text="Item successfully added in Database."
+                Utilities.styleStatusLabelForSuccess(lbl: statusLbl, successMsg: "Item successfully added in Database.")
                 isItemAddedToDBFlag=true;
                 return
             }
         }catch{
-            statusLbl.textColor=UIColor.red
-            statusLbl.text="Error in adding values to Database: \(error)"
+            Utilities.styleStatusLabelForError(lbl: statusLbl, error:"Error in adding values to Database: \(error.localizedDescription)")
             return
         }
     }
@@ -168,8 +173,7 @@ class addItemToLocalDBViewController: UIViewController {
                 arrItemInfo.append(items[i])
             }
         } catch{
-            statusLbl.textColor=UIColor.red
-            statusLbl.text="Error occured in fetching items from Database: \(error)"
+            Utilities.styleStatusLabelForError(lbl: statusLbl, error: error.localizedDescription)
         }
     }
    

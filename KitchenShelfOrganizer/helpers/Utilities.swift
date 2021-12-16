@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 class Utilities{
     
     static func styleTextField(_ tf: UITextField){
@@ -14,7 +15,10 @@ class Utilities{
         tf.layer.cornerRadius = 5
         tf.clipsToBounds = true
         tf.textColor = .black
+        tf.frame.size.height=50
+      
         NSLayoutConstraint.init(item: tf, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 50).isActive = true
+        
 
     }
     
@@ -25,17 +29,18 @@ class Utilities{
     }
     
     static func setRoundedBorderButton(btn:UIButton){
-//        let defaultColor = UIColor(red: 100/255, green: 130/255, blue: 230/255, alpha: 1).cgColor
+        let defaultColor = UIColor(red: 100/255, green: 130/255, blue: 230/255, alpha: 1).cgColor
 //        let selectedColor = UIColor(red: 251/255, green: 186/255, blue: 8/255, alpha: 1).cgColor
         btn.layer.cornerRadius = btn.frame.size.height/2
         btn.layer.borderWidth = 0.5
         btn.layer.backgroundColor = UIColor.systemGreen.cgColor
         btn.titleLabel?.font = .systemFont(ofSize: 15, weight: .medium)
-        btn.setTitleColor(UIColor.black, for: .normal)
-
+        btn.setTitleColor(.black, for: .normal)
+        
     }
     
     static func stylePageHeadlingLbl(lbl:UILabel){
+        lbl.frame.size.height = 50
         lbl.textAlignment = .center
         lbl.textColor = UIColor.black
         lbl.font = UIFont.systemFont(ofSize: 28, weight: .bold)
@@ -56,6 +61,37 @@ class Utilities{
         lbl.text = successMsg
         lbl.alpha=1
     }
+    
+    static func styleSortingBtn(btn:UIButton){
+        let defaultColor = UIColor(red: 100/255, green: 130/255, blue: 230/255, alpha: 1)
+        btn.frame.size.height = 20
+        btn.layer.cornerRadius = btn.frame.size.height/3
+        btn.setTitleColor(.black, for: .normal)
+    }
+    
+    static func styleSortingStackView(stackView: UIStackView){
+        stackView.frame.size.height = 40
+        stackView.frame.size.width = 380
+        stackView.axis = .horizontal
+        stackView.alignment = .fill
+        stackView.distribution = .fillEqually
+        stackView.spacing = 1
+        stackView.contentMode = .left
+        stackView.backgroundColor = .systemPink
+        
+    }
+    
+    static func styleTableView(tblView: UITableView){
+        tblView.translatesAutoresizingMaskIntoConstraints = true
+        tblView.rowHeight = 50
+
+    }
+    
+    
+    static func styleUIBarBtn(barBtn: UIBarButtonItem){
+        
+    }
+
     
     static func addDelay(){
         DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {}
@@ -96,6 +132,9 @@ class Utilities{
         }
         return nil
     }
+    
+    
+    
     
 }
 

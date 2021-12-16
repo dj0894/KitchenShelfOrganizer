@@ -17,9 +17,9 @@
 		CF8C2F89275E267D00CA944A /* addItemToLocalDBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8C2F88275E267D00CA944A /* addItemToLocalDBViewController.swift */; };
 		CF8C2F8C275EAFAF00CA944A /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8C2F8A275EAFAF00CA944A /* CustomTableViewCell.swift */; };
 		CF8C2F8D275EAFAF00CA944A /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF8C2F8B275EAFAF00CA944A /* CustomTableViewCell.xib */; };
+		CF9809C927640E2500A150E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFE9948F275988B9001C858B /* Main.storyboard */; };
 		CFCF874E275DB17000E77051 /* ItemInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCF874D275DB17000E77051 /* ItemInfo.swift */; };
 		CFE459C12762BBF40019094B /* TableViewServerDBData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE459C02762BBF40019094B /* TableViewServerDBData.swift */; };
-		CFE459C72762CCD80019094B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFE9948F275988B9001C858B /* Main.storyboard */; };
 		CFE459CB2762DF5F0019094B /* AddItemToServerDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE459C22762BC1A0019094B /* AddItemToServerDB.swift */; };
 		CFE459CD27631D5E0019094B /* TableViewLocalDBVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE459CC27631D5D0019094B /* TableViewLocalDBVC.swift */; };
 		CFE9948A275988B9001C858B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE99489275988B9001C858B /* AppDelegate.swift */; };
@@ -255,7 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFE99496275988BD001C858B /* LaunchScreen.storyboard in Resources */,
-				CFE459C72762CCD80019094B /* Main.storyboard in Resources */,
+				CF9809C927640E2500A150E2 /* Main.storyboard in Resources */,
 				CFE99493275988BD001C858B /* Assets.xcassets in Resources */,
 				CF7A9568275F8471008DF672 /* GoogleService-Info.plist in Resources */,
 				CF8C2F8D275EAFAF00CA944A /* CustomTableViewCell.xib in Resources */,

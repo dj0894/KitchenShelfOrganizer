@@ -30,21 +30,21 @@ class FirstScreenViewController: UIViewController {
         Utilities.setRoundedBorderButton(btn: loginBtn)
         Utilities.setRoundedBorderButton(btn: signUpBtn)
         Utilities.setRoundedBorderButton(btn: loginAnonymouslyBtn)
-        
     }
 
-    
     @IBAction func loginBtnClick(_ sender: UIButton) {
     }
     
     @IBAction func signUpBtnClick(_ sender: UIButton) {
     }
     
-    
     @IBAction func loginAnonymouslyBtnClick(_ sender: UIButton) {
-        guard let tableViewLocalDBVC=storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.tableViewLocalDBVC) as? TableViewLocalDBVC
-        else { return }
-        self.navigationController?.pushViewController(tableViewLocalDBVC, animated: true)
-        
     }
+    
+//    @IBAction func loginAnonymouslyBtnClick(_ sender: UIButton) {
+//        guard let tableViewLocalDBVC=storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.tableViewLocalDBVC) as? TableViewLocalDBVC
+//        else { return }
+//        self.navigationController?.pushViewController(tableViewLocalDBVC, animated: true)
+//        
+//    }
 }

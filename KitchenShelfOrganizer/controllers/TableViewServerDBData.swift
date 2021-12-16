@@ -9,15 +9,23 @@ import UIKit
 import Realm
 import FirebaseAuth
 import Firebase
-
+import SwiftSpinner
 
 class TableViewServerDBData: UIViewController,UITableViewDelegate,UITableViewDataSource {
-   
     @IBOutlet weak var pageHeadingLbl: UILabel!
     @IBOutlet weak var addBarBtn: UIBarButtonItem!
+    
     @IBOutlet weak var displayServerDataTblView: UITableView!
+    @IBOutlet weak var sortByBtn: UIButton!
+    @IBOutlet weak var sortStackView: UIStackView!
+    @IBOutlet weak var sortByItemNameBtn: UIButton!
+    @IBOutlet weak var sortByPurchaseDateBTn: UIButton!
+    @IBOutlet weak var sortByExpiryDateBtn: UIButton!
+    
+    
     let datePicker=UIDatePicker();
     var arrItemInfo:[ItemInfo] = [ItemInfo]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         displayServerDataTblView.delegate=self
@@ -28,6 +36,10 @@ class TableViewServerDBData: UIViewController,UITableViewDelegate,UITableViewDat
   
     func setUpElements(){
         Utilities.stylePageHeadlingLbl(lbl: pageHeadingLbl)
+        Utilities.styleSortingStackView(stackView: sortStackView)
+        Utilities.styleSortingBtn(btn: sortByItemNameBtn)
+        Utilities.styleSortingBtn(btn: sortByPurchaseDateBTn)
+        Utilities.styleSortingBtn(btn: sortByExpiryDateBtn)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -44,12 +56,14 @@ class TableViewServerDBData: UIViewController,UITableViewDelegate,UITableViewDat
     }
     
     func fetchDataFromServer(){
+        SwiftSpinner.show("Fetching Items from server")
         let currUserId = Auth.auth().currentUser?.uid
         let db = Firestore.firestore()
         let docRef=db.collection("itemList").document(currUserId!)
         docRef.collection("items").getDocuments(){(querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
+                return
             } else {
                 self.arrItemInfo.removeAll()
                 for document in querySnapshot!.documents {
@@ -61,10 +75,28 @@ class TableViewServerDBData: UIViewController,UITableViewDelegate,UITableViewDat
                     itemInfo.purchaseDate = docDetails["purchaseDate"] as! String
                     self.arrItemInfo.append(itemInfo)
                 }
-                print(self.arrItemInfo)
+                self.arrItemInfo = self.sortArrayItemInfoByItemName(arr: self.arrItemInfo)
                 self.displayServerDataTblView.reloadData()
+                SwiftSpinner.hide(nil)
             }
         }
+        
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            print(arrItemInfo[indexPath.row])
+            print(indexPath.row)
+            removeFromServerDB(item: arrItemInfo[indexPath.row])
+            arrItemInfo.remove(at: indexPath.row)
+            displayServerDataTblView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
+    func removeFromServerDB(item: ItemInfo){
+        
+        print(arrItemInfo)
+        print(item.id)
         
     }
     
@@ -77,5 +109,35 @@ class TableViewServerDBData: UIViewController,UITableViewDelegate,UITableViewDat
     
     @IBAction func goToAddItemToServerDBVC(_ sender: Any) {
         performSegue(withIdentifier:"addBarBtnSegue",sender: self)
+    }
+    
+    func sortArrayItemInfoByItemName(arr:[ItemInfo])->[ItemInfo]{
+        let sortedArray = arr.sorted(by: {$0.itemName<$1.itemName})
+        return sortedArray
+    }
+    
+    func sortArrayItemInfoByExpiryDate(arr:[ItemInfo])->[ItemInfo]{
+        let sortedArray = arr.sorted(by: {$0.expiryDate<$1.expiryDate})
+        return sortedArray
+    }
+    
+    func sortArrayItemInfoByPurchaseDate(arr:[ItemInfo])->[ItemInfo]{
+        let sortedArray = arr.sorted(by: {$0.purchaseDate<$1.purchaseDate})
+        return sortedArray
+    }
+    
+    
+    @IBAction func sortByItemNameBtnClick(_ sender: UIButton) {
+        arrItemInfo=sortArrayItemInfoByItemName(arr:arrItemInfo)
+        displayServerDataTblView.reloadData()
+    }
+    
+    @IBAction func sortByPurchaseDateBtnClick(_ sender: UIButton) {
+        arrItemInfo=sortArrayItemInfoByPurchaseDate(arr:arrItemInfo)
+        displayServerDataTblView.reloadData()
+    }
+    @IBAction func sortByExpiryDateBtnClick(_ sender: UIButton) {
+        arrItemInfo=sortArrayItemInfoByExpiryDate(arr:arrItemInfo)
+        displayServerDataTblView.reloadData()
     }
 }

@@ -13,6 +13,8 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var expiryDateLbl: UILabel!
     @IBOutlet weak var purchaseDateLbl: UILabel!
     
+ 
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -23,5 +25,6 @@ class CustomTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
     
 }

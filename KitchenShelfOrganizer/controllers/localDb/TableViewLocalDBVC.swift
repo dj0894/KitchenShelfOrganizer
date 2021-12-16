@@ -16,10 +16,17 @@ class TableViewLocalDBVC: UIViewController,UITableViewDelegate,UITableViewDataSo
 
     @IBOutlet weak var displayItemsTblView: UITableView!
     
+    @IBOutlet weak var sortingStackView: UIStackView!
+    
+    @IBOutlet weak var sortByPurchaseDateBtn: UIButton!
+    @IBOutlet weak var sortByExpiryDateBtn: UIButton!
+    @IBOutlet weak var sortByItemName: UIButton!
+    @IBOutlet weak var pageHeadingLbl: UILabel!
+    @IBOutlet weak var addItemBarBtn: UIBarButtonItem!
+    
     let datePicker=UIDatePicker();
     var arrItemInfo:[ItemInfo] = [ItemInfo]()
     
-    @IBOutlet weak var pageHeadingLbl: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         displayItemsTblView.delegate=self
@@ -31,6 +38,10 @@ class TableViewLocalDBVC: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     func setUpElements(){
         Utilities.stylePageHeadlingLbl(lbl: pageHeadingLbl)
+        Utilities.styleSortingStackView(stackView: sortingStackView)
+        Utilities.styleSortingBtn(btn: sortByItemName)
+        Utilities.styleSortingBtn(btn: sortByExpiryDateBtn)
+        Utilities.styleSortingBtn(btn: sortByPurchaseDateBtn)
     }
     
 
@@ -50,22 +61,7 @@ class TableViewLocalDBVC: UIViewController,UITableViewDelegate,UITableViewDataSo
         return cell
     }
     
-    //    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    //        return "Item Name             Expiry Date            PurchaseDate"
-    //    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 50))
-        let label = UILabel()
-        label.frame = CGRect.init(x: 0, y: 0, width: headerView.frame.width-10, height: headerView.frame.height-10)
-        label.text = " Item Details"
-        label.font = .systemFont(ofSize: 15)
-        label.textColor = .red
-        label.backgroundColor=UIColor.yellow
-        headerView.addSubview(label)
-        
-        return headerView
-    }
+
         
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {

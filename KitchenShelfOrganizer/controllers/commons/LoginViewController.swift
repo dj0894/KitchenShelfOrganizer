@@ -27,10 +27,7 @@ class LoginViewController: UIViewController {
         Utilities.setRoundedBorderButton(btn: loginBtn)
     
     }
-    
-  
-    
-    
+ 
     func showError(_ error : String){
         statusLbl.text = error
         statusLbl.alpha=1
@@ -54,9 +51,6 @@ class LoginViewController: UIViewController {
                     return
                 }else{
     
-//                    let userData = result?.user
-//                    print(userData?.email)
-//                    print(userData?.uid)
                   self.transitionToTableViewServerDBDataVC()
                    
                 }
@@ -66,7 +60,6 @@ class LoginViewController: UIViewController {
     
 
     func  transitionToTableViewServerDBDataVC(){
-        
         guard let tableViewServerDataVC=storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.tableViewServerDataVC) as? TableViewServerDBData else { return }
         self.navigationController?.pushViewController(tableViewServerDataVC, animated: true)
 
