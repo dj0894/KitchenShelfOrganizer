@@ -43,6 +43,7 @@ class Utilities{
         lbl.textAlignment = .center
         lbl.textColor = UIColor.black
         lbl.font = UIFont.systemFont(ofSize: 28, weight: .bold)
+        lbl.numberOfLines = 2
     }
     
     static func styleStatusLabelForError(lbl:UILabel,error: String){
@@ -82,16 +83,10 @@ class Utilities{
     
     static func styleTableView(tblView: UITableView){
         tblView.translatesAutoresizingMaskIntoConstraints = true
-        tblView.rowHeight = 50
+        tblView.rowHeight = 60
 
     }
-    
-    
-    static func styleUIBarBtn(barBtn: UIBarButtonItem){
-        //barBtn.backgroundColor = UIColor.green
-    }
 
-    
     static func addDelay(){
         DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {}
     }
@@ -112,7 +107,11 @@ class Utilities{
         return sortedArray
     }
     
-    
+    static func sortArrayByNoOfDaysToExpire(arr:[ItemInfoDashboard])->[ItemInfoDashboard]{
+        let sortedArray = arr.sorted(by: {$0.noOfdaysToExpire<$1.noOfdaysToExpire})
+        return sortedArray
+    }
+
     static func isValidPassword(_ password:String) -> Bool {
         // least one uppercase,
         // least one digit

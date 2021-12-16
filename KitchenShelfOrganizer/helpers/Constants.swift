@@ -15,6 +15,8 @@ struct Constants{
         static let firstScreenVC = "FirstScreenVC"
         static let tableViewServerDataVC = "TableViewServerDataVC" //(TableViewServerDataVC) is storyBoard identfier
         static let loginScreenVC = "LoginScreenVC"
+        static let dashboardVC = "DashboardVC"
+        
         
     }
 }

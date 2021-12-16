@@ -53,13 +53,18 @@ class LoginViewController: UIViewController {
                     return
                 }else{
                     self.clearFields()
-                    self.transitionToTableViewServerDBDataVC()
+                   // self.transitionToTableViewServerDBDataVC()
+                    self.transitionToDashboardVC()
                    
                 }
             }
         }
     }
     
+    func transitionToDashboardVC(){
+        guard let dashboardVC=storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.dashboardVC) as? DashboardViewController else { return }
+        self.navigationController?.pushViewController(dashboardVC, animated: true)
+    }
     
     func  transitionToTableViewServerDBDataVC(){
         guard let tableViewServerDataVC=storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.tableViewServerDataVC) as? TableViewServerDBData else { return }

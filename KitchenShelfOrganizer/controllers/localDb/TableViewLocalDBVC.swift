@@ -40,7 +40,6 @@ class TableViewLocalDBVC: UIViewController,UITableViewDelegate,UITableViewDataSo
         Utilities.styleSortingBtn(btn: sortByItemNameBtn)
         Utilities.styleSortingBtn(btn: sortByExpiryDateBtn)
         Utilities.styleSortingBtn(btn: sortByPurchaseDateBtn)
-        Utilities.styleUIBarBtn(barBtn: addItemBarBtn)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -68,8 +68,10 @@ class AddItemToServerDB: UIViewController {
                 if let err = err {
                     Utilities.styleStatusLabelForError(lbl: self.statusLbl, error:"\(err.localizedDescription)")
                 } else {
+                    self.statusLbl.alpha = 1
                     Utilities.styleStatusLabelForSuccess(lbl: self.statusLbl, successMsg: "Item added successfully")
                     self.updateArrItemInfo(itemId:itemId,itemName: itemName!,expiryDate: expiryDate!,purchaseDate: purchaseDate!)
+                    self.clearFeilds()
                     self.transitionToTableViewServerDBDataVC()
                 }
         }
@@ -158,6 +160,14 @@ class AddItemToServerDB: UIViewController {
         guard let loginScreenVC=storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.loginScreenVC) as? LoginViewController else { return}
         self.navigationController?.pushViewController(loginScreenVC, animated: true)
         
+    }
+    
+    func  clearFeilds(){
+        itemNameTF.text=""
+        expiryDateTF.text=""
+        purchaseDateTF.text=""
+        statusLbl.text=""
+        statusLbl.alpha=0
     }
     
 }
