@@ -15,23 +15,13 @@ import PromiseKit
 class TableViewLocalDBVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     @IBOutlet weak var displayItemsTblView: UITableView!
-    
     @IBOutlet weak var sortingStackView: UIStackView!
-    
     @IBOutlet weak var sortByItemNameBtn: UIButton!
-    
     @IBOutlet weak var sortByPurchaseDateBtn: UIButton!
-    
     @IBOutlet weak var sortByExpiryDateBtn: UIButton!
-    
-    
     @IBOutlet weak var pageHeadingLbl: UILabel!
     @IBOutlet weak var addItemBarBtn: UIBarButtonItem!
     
-    
-    
-    
-   
     let datePicker=UIDatePicker();
     var arrItemInfo:[ItemInfo] = [ItemInfo]()
     
@@ -53,25 +43,18 @@ class TableViewLocalDBVC: UIViewController,UITableViewDelegate,UITableViewDataSo
         Utilities.styleUIBarBtn(barBtn: addItemBarBtn)
     }
     
-
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrItemInfo.count
     }
-    
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
         let cell=Bundle.main.loadNibNamed("CustomTableViewCell", owner: self, options: nil)?.first as! CustomTableViewCell
-
         cell.itemNameLbl.text!="\(arrItemInfo[indexPath.row].itemName)"
         cell.expiryDateLbl.text!="\(arrItemInfo[indexPath.row].expiryDate)"
         cell.purchaseDateLbl.text!="\(arrItemInfo[indexPath.row].purchaseDate)"
         return cell
     }
-    
-
-        
+ 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             removeItemFromDB(arrItemInfo[indexPath.row])

@@ -45,7 +45,6 @@ class TableViewServerDBData: UIViewController,UITableViewDelegate,UITableViewDat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell=Bundle.main.loadNibNamed("CustomTableViewCell", owner: self, options: nil)?.first as! CustomTableViewCell
-    
         cell.itemNameLbl.text!="\(arrItemInfo[indexPath.row].itemName)"
         cell.expiryDateLbl.text!="\(arrItemInfo[indexPath.row].expiryDate)"
         cell.purchaseDateLbl.text!="\(arrItemInfo[indexPath.row].purchaseDate)"
@@ -56,17 +55,19 @@ class TableViewServerDBData: UIViewController,UITableViewDelegate,UITableViewDat
         SwiftSpinner.show("Fetching Items from server")
         let currUserId = Auth.auth().currentUser?.uid
         let db = Firestore.firestore()
-        let docRef=db.collection("itemList").document(currUserId!)
+        let docRef = db.collection("itemList").document(currUserId!)
         docRef.collection("items").getDocuments(){(querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
                 return
             } else {
+                
                 self.arrItemInfo.removeAll()
                 for document in querySnapshot!.documents {
                     //print("\(document.documentID) => \(document.data())")
                     let itemInfo=ItemInfo()
                     let docDetails = document.data()
+                    itemInfo.id = docDetails["itemId"] as! String
                     itemInfo.itemName = docDetails["itemName"] as! String
                     itemInfo.expiryDate = docDetails["expiryDate"] as! String
                     itemInfo.purchaseDate = docDetails["purchaseDate"] as! String
@@ -80,6 +81,7 @@ class TableViewServerDBData: UIViewController,UITableViewDelegate,UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        print(arrItemInfo)
         if editingStyle == .delete {
             print(arrItemInfo[indexPath.row])
             print(indexPath.row)
@@ -88,10 +90,19 @@ class TableViewServerDBData: UIViewController,UITableViewDelegate,UITableViewDat
             displayServerDataTblView.deleteRows(at: [indexPath], with: .fade)
         }
     }
+    
     func removeFromServerDB(item: ItemInfo){
-        print(arrItemInfo)
-        print(item.id)
-        
+        let currUserId = Auth.auth().currentUser?.uid
+        let db = Firestore.firestore()
+        let docRef = db.collection("itemList").document(currUserId!)
+       //delete document with id = item.id
+        docRef.collection("items").document(item.id).delete(){ err in
+            if let err = err {
+                print("Error removing document: \(err)")
+            } else {
+                print("Document successfully removed!")
+            }
+        }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "addBarBtnSegue" {

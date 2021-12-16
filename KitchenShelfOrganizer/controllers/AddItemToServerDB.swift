@@ -55,7 +55,7 @@ class AddItemToServerDB: UIViewController {
         let currentUserId = Auth.auth().currentUser?.uid
         
         let db = Firestore.firestore()
-        db.collection("itemList").document(currentUserId!).collection("items").addDocument(data:[
+        db.collection("itemList").document(currentUserId!).collection("items").document(itemId).setData([
             "itemId":itemId,
             "itemName":itemName,
             "expiryDate":expiryDate,
@@ -65,6 +65,8 @@ class AddItemToServerDB: UIViewController {
                 if let err = err {
                     Utilities.styleStatusLabelForError(lbl: self.statusLbl, error:"\(err.localizedDescription)")
                 } else {
+                    
+                    
                     Utilities.styleStatusLabelForSuccess(lbl: self.statusLbl, successMsg: "Item added successfully")
                     self.updateArrItemInfo(itemId:itemId,itemName: itemName!,expiryDate: expiryDate!,purchaseDate: purchaseDate!)
                     self.transitionToTableViewServerDBDataVC()
@@ -79,6 +81,7 @@ class AddItemToServerDB: UIViewController {
         itemInfo.expiryDate = expiryDate
         itemInfo.purchaseDate = purchaseDate
         arrItemInfo.append(itemInfo)
+        print(arrItemInfo)
     }
     
     func transitionToTableViewServerDBDataVC(){
